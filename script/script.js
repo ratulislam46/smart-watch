@@ -1,3 +1,4 @@
+// band color section
 const ringButtons = document.querySelectorAll('.ring-button');
 for (let i = 0; i < ringButtons.length; i++){
     const ringBtn = ringButtons[i];
@@ -20,6 +21,7 @@ for (let i = 0; i < ringButtons.length; i++){
     })
 }
 
+// wrist size section
 function selectWristSize(size) {
     const sizes = ["S", "M", "L", "XL"];
     for (let i = 0; i < sizes.length; i++) {
@@ -32,6 +34,24 @@ function selectWristSize(size) {
       }
     }
   }
+
+// button section
+const quantityElemnt = document.querySelectorAll(".quantity-button");
+for (btn of quantityElemnt){
+    btn.addEventListener('click', function(event){
+        // tarnary oparetor
+        const amount = event.target.innerText === "+" ? 1 : -1;
+        // select quarent quantity and convert string to number
+        const quarentQuantity = document.getElementById("quantity");
+        const currentquantity = parseInt(quarentQuantity.innerText);
+        // quantity sum and sub
+        const newQuantity = Math.max(0, currentquantity + amount);
+        console.log(newQuantity)
+       // quantity number chance 
+        quarentQuantity.innerText = newQuantity;
+    })
+}
+
 
 
 
